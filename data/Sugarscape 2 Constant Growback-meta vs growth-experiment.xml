@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE experiments SYSTEM "behaviorspace.dtd">
+<experiments>
+  <experiment name="meta vs growth" repetitions="100" sequentialRunOrder="false" runMetricsEveryStep="false">
+    <setup>setup</setup>
+    <go>go</go>
+    <timeLimit steps="300"/>
+    <exitCondition>(max-vis &lt; min-vis) OR (max-meta &lt; min-meta) OR (not any? turtles)</exitCondition>
+    <metric>count turtles</metric>
+    <metric>mean [metabolism] of turtles</metric>
+    <metric>mean [vision] of turtles</metric>
+    <metric>max-vis &gt;= min-vis</metric>
+    <metric>max-meta &gt;= min-meta</metric>
+    <steppedValueSet variable="max-meta" first="1" step="1" last="10"/>
+    <enumeratedValueSet variable="min-meta">
+      <value value="1"/>
+    </enumeratedValueSet>
+    <enumeratedValueSet variable="max-vis">
+      <value value="6"/>
+    </enumeratedValueSet>
+    <enumeratedValueSet variable="min-vis">
+      <value value="1"/>
+    </enumeratedValueSet>
+    <steppedValueSet variable="sugar-growback-rate" first="0.25" step="0.25" last="2"/>
+    <enumeratedValueSet variable="visualization">
+      <value value="&quot;no-visualization&quot;"/>
+    </enumeratedValueSet>
+    <enumeratedValueSet variable="initial-population">
+      <value value="500"/>
+    </enumeratedValueSet>
+  </experiment>
+</experiments>
